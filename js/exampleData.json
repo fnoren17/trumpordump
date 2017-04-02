@@ -1,0 +1,18 @@
+{
+    "users": {
+        "ALHSDVKJHBLSKJB": {
+            "highScore": 0,
+            "tweetsSeen": {
+                "0": true
+            }
+        }
+
+    },
+    "tweets": {
+        "Private jets cost a lot of money": {
+            "numberRight": 0,
+            "numberWrong": 0,
+            "totalNumber": 0
+        }
+    }
+}

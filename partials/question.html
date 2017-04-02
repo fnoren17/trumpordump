@@ -1,2 +1,64 @@
 <!-- including the currentScore view and its controller-->
-<ng-include src="'partials/currentScore.html'" ng-controller="CurrentScoreCtrl"></ng-include>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-4">
+			<ng-include src="'partials/display.html'" ng-controller="DisplayCtrl"></ng-include>
+		</div>
+
+<!--The tweet-->
+	<div class="col-xs-8">
+		<div class = "Trump-headerinfo">
+			<img src="http://i.imgur.com/urXHXE6.png"/>
+		</div>
+		<div class="tweet-container" >
+			<p style="padding-left:45px">{{getQuestion}}</p>
+		</div>
+		<div class = "Trump-footerinfo">
+			<img src = "http://i.imgur.com/0YkSv44.png"/>
+		</div>
+	</div>
+</div>
+<!--
+<p><a href="#/answer/trump" class="btn btn-primary">Trump</a></p>
+<p><a href="#/answer/dump" class="btn btn-primary">Dump</a></p>
+-->
+
+<div class="row">
+	<div class="col-xs-4">
+		<p>Trump</p>
+		<div id="trump" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	</div>
+	<div class="col-xs-4">
+		<br>
+		<i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity" draggable="true"  ondragstart="drag(event)"></i>
+	</div>
+	<div class="col-xs-4">
+		<p>Dump<p/>
+		<div id="dump" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	</div>	
+</div>
+<script> 
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    document.getElementsByClassName("div1")[0].style.background = "white";
+    document.getElementsByClassName("div1")[1].style.background = "white";
+    document.getElementsByClassName("div1")[0].style.color = "black";
+    document.getElementsByClassName("div1")[1].style.color = "black";
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    ev.toElement.style.background = "skyblue";
+    ev.toElement.style.color = "white";
+    setTimeout(function() { next(ev.toElement.id); }, 500);
+}
+function next(id) {
+	location = '/#/answer/' + id;
+}
+</script>
