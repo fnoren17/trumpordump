@@ -37,61 +37,11 @@ trumpOrDumpApp.controller('LoginCtrl',function($scope, firebase){
 	
 	$scope.user = {email:"perjaa@kth.se", password:"testingtesting"};
 
-	var user;
-	var fireAuth = firebase.auth();
-
-  $scope.reset = function() {
-      $scope.user = {email:"", password:""};
-  };
-
 	$scope.newAccount = function() {
-		user = firebase.auth().createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
-    	.catch(function(error) {
-  		// Handle Errors here.
-  		var errorCode = error.code;
-  		var errorMessage = error.message;
-  		if (errorCode == 'auth/weak-password') {
-    		alert('The password is too weak.');
-  		} else {
-    		alert(errorMessage);
-  		}
-  		console.log(error);
-		});
+	 firebase.newAccount($scope.user.email,$scope.user.password);
   }
 
 	$scope.login = function() {
-		user = firebase.auth().signInWithEmailAndPassword($scope.user.email, $scope.user.password)
-    	.catch(function(error) {
-  		// Handle Errors here.
-  		var errorCode = error.code;
-  		var errorMessage = error.message;
-  		if (errorCode === 'auth/wrong-password') {
-    		alert('Wrong password.');
-  		} else {
-    		alert(errorMessage);
-  		}
-  		console.log(error);
-		});
 	}
-
-  $scope.resetUserData = function() {
-    // Sets user data to default 0 values.
-    var userId = firebase.auth().currentUser.uid; 
-    firebase.database().ref('users/' + userId).set({highScore: 0,tweetsSeen: {"0": true}});
-  
-    var reference = firebase.database().ref('users/' + userId);
-    reference.on('value', function(snapshot) {
-      console.log(JSON.stringify(snapshot));
-    });
-  }
-
-  $scope.showUserData = function() {
-    // Gives user data for current user, if there is any yet.
-    var userId = firebase.auth().currentUser.uid;
-    var reference = firebase.database().ref('users/' + userId);
-    reference.on('value', function(snapshot) {
-      console.log(JSON.stringify(snapshot));
-    });
-  }
 
 });

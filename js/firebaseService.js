@@ -46,7 +46,53 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
     firebase.initializeApp(config);
 
     var database = firebase.database();
+    
+    this.me = function() {
+      console.log(firebase.auth().currentUser.uid);
+      return firebase.auth().currentUser.uid;
+    }
 
-    return firebase;
+    this.getDatabase = function(input,cb) {
+      firebase.database().ref(String(input)).once("value",function(snapshot){
+        cb(JSON.parse(JSON.stringify(snapshot)));
+      },
+      function(error){
+        console.log(error);
+        console.log(firebase.auth().currentUser);
+      });
+    }
+
+    this.login = function(email, password) {
+      firebase.auth().signInWithEmailAndPassword(email, password)
+      .catch(function(error) {
+      // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+         alert('Wrong password.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+      });
+      console.log(firebase.auth().currentUser);
+    }
+
+    this.newAccount = function(email, password) {
+      user = firebase.auth().createUserWithEmailAndPassword(email, password)
+      .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode == 'auth/weak-password') {
+        alert('The password is too weak.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+    });
+    }
+
+    return this;
 
 });

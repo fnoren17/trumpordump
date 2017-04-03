@@ -1,8 +1,19 @@
 <!-- including the currentScore view and its controller-->
-<ng-include src="'partials/display.html'" ng-controller="DisplayCtrl"></ng-include>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-4">
+			<ng-include src="'partials/display.html'" ng-controller="DisplayCtrl"></ng-include>
 
-<p>{{showAnswer}}</p>
-<p><a href="#/question" class="btn btn-primary">Next tweet</a></p>
+			<p>{{showAnswer}}</p>
+			<p><a href="#/question" class="btn btn-primary">Next tweet</a></p>
 
-<img ng-src = "{{imagePattern}}" height=100px witdh=100px align="center">
+			<img ng-src = "{{imagePattern}}" height=100px witdh=100px align="center">
+		</div>
+		<div class="col-xs-4">
+			<ng-include src="'partials/statitics.html'" ng-controller="StatisticsCtrl"></ng-include>
+		</div>
+		<div class="col-xs-4">
+		</div>
+	</div>
+</div>
 

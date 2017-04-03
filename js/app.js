@@ -17,17 +17,9 @@ trumpOrDumpApp.config(['$routeProvider',
         templateUrl: 'partials/answer.html',
         controller: 'AnswerCtrl'
       }).
-	  when('/highscore', {
-        templateUrl: 'partials/highscore.html',
-        controller: 'HighscoreCtrl'
-      }).
     when('/login', {
         templateUrl: 'partials/login.html',
         controller: 'LoginCtrl'
-      }).
-    when('/stat', {
-        templateUrl: 'partials/statitics.html',
-        controller: 'StatisticsCtrl'
       }).
       otherwise({
         redirectTo: '/start'

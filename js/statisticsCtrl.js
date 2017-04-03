@@ -34,19 +34,14 @@
 */
 
 trumpOrDumpApp.controller('StatisticsCtrl',function($scope, firebase){
-	$scope.butInfo = "CLICK";
-
     var stat_data = "";
-    var reference = firebase.database().ref('statistics');
-    reference.on('value', function(snapshot) {
-      var stat_data = JSON.parse(JSON.stringify(snapshot));
 
+    firebase.getDatabase('statistics',function(snapshot){
+      var stat_data = JSON.parse(JSON.stringify(snapshot));
       $scope.$apply(function () {
         $scope.right = stat_data[0];
         $scope.wrong = stat_data[1];
       });
-
-      console.log($scope.right);
       
     var w = 300,                        //width
     h = 300,                            //height
@@ -78,8 +73,7 @@ trumpOrDumpApp.controller('StatisticsCtrl',function($scope, firebase){
 
         arcs.append("svg:path")
                 .attr("fill", function(d, i) { return color(i); } ) //set the color for each slice to be chosen from the color function defined above
-                .attr("d", arc)
-                .on('hover',console.log(data));                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+                .attr("d", arc);                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
 
         arcs.append("svg:text")                                     //add a label to each slice
                 .attr("transform", function(d) {                    //set the label's origin to the center of the arc
@@ -90,10 +84,5 @@ trumpOrDumpApp.controller('StatisticsCtrl',function($scope, firebase){
             })
             .attr("text-anchor", "middle")                          //center the text on it's origin
             .text(function(d, i) { return data[i].label; });        //get the label from our original data array
-
-
-
-    });
-
-    
+    });   
 });
