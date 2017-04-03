@@ -25,6 +25,10 @@ trumpOrDumpApp.config(['$routeProvider',
         templateUrl: 'partials/login.html',
         controller: 'LoginCtrl'
       }).
+    when('/stat', {
+        templateUrl: 'partials/statitics.html',
+        controller: 'StatisticsCtrl'
+      }).
       otherwise({
         redirectTo: '/start'
       });
