@@ -11,6 +11,8 @@ trumpOrDumpApp.controller('AnswerCtrl',function($scope, $routeParams, Trump){
 				Trump.updateScore(Trump.getScore() + 1);
 				$scope.showAnswer = "Tremendous!";
 				$scope.imagePattern = "http://citizensfortrump.com/wp-content/uploads/2015/09/thumbs-up-trump.jpg";
+				var audio = new Audio('right.mp3');
+				audio.play();
 			}else{
 			
 			Trump.updateScore(Trump.getScore() - 5);
@@ -27,6 +29,8 @@ trumpOrDumpApp.controller('AnswerCtrl',function($scope, $routeParams, Trump){
 				Trump.updateScore(Trump.getScore() + 1);
 				$scope.showAnswer = "Tremendous!";
 				$scope.imagePattern = "http://citizensfortrump.com/wp-content/uploads/2015/09/thumbs-up-trump.jpg";
+				var audio = new Audio('right.mp3');
+				audio.play();
 			}else{
 			
 			Trump.updateScore(Trump.getScore() - 5);
