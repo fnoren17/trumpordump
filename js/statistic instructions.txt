@@ -1,0 +1,8 @@
+How to get statistics data:
+	var stat_data = "";
+	var reference = firebase.database().ref('/statistics');
+    reference.on('value', function(snapshot) {
+    	var stat_data = JSON.parse(JSON.stringify(snapshot));
+    	return stat_data;
+    })
+

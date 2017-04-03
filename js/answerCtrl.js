@@ -10,10 +10,14 @@ trumpOrDumpApp.controller('AnswerCtrl',function($scope, $routeParams, Trump){
 				
 				Trump.updateScore(Trump.getScore() + 1);
 				$scope.showAnswer = "Tremendous!";
+				$scope.imagePattern = "http://citizensfortrump.com/wp-content/uploads/2015/09/thumbs-up-trump.jpg";
+				var audio = new Audio('right.mp3');
+				audio.play();
 			}else{
 			
 			Trump.updateScore(Trump.getScore() - 5);
 			$scope.showAnswer = "Fake News!";
+			$scope.imagePattern = "https://i.imgflip.com/14c217.jpg?a414168";
 			var audio = new Audio('wrong.mp3');
 			audio.play();
 			};
@@ -24,10 +28,14 @@ trumpOrDumpApp.controller('AnswerCtrl',function($scope, $routeParams, Trump){
 				
 				Trump.updateScore(Trump.getScore() + 1);
 				$scope.showAnswer = "Tremendous!";
+				$scope.imagePattern = "http://citizensfortrump.com/wp-content/uploads/2015/09/thumbs-up-trump.jpg";
+				var audio = new Audio('right.mp3');
+				audio.play();
 			}else{
 			
 			Trump.updateScore(Trump.getScore() - 5);
 			$scope.showAnswer = "Fake News!";
+			$scope.imagePattern = "https://i.imgflip.com/14c217.jpg?a414168";
 			var audio = new Audio('wrong.mp3');
 			audio.play();
 			};
