@@ -51,7 +51,7 @@
 <div class="row">
 	<div class="col-xs-4">
 		<p>Trump</p>
-		<i class="fa fa-bullseye fa-4x div1" id="trump" ondrop="drop(event)" ondragover="allowDrop(event), changeicon('trump', 1)" ondragleave="changeicon('trump', 2)" aria-hidden="true"></i>
+		<i class="fa fa-usd fa-4x div1" id="trump" ondrop="drop(event)" ondragover="allowDrop(event), changeicon('trump', 1)" ondragleave="changeicon('trump', 2)" aria-hidden="true"></i>
 		
 	</div>
 	<div class="col-xs-4">
@@ -72,7 +72,7 @@ function changeicon(id, flag){
 		if(flag == 1){
 			document.getElementById("trump").className = "fa fa-thumbs-up fa-4x div1";
 		} else if (flag == 2){
-			document.getElementById("trump").className = "fa fa-bullseye fa-4x div1";
+			document.getElementById("trump").className = "fa fa-usd fa-4x div1";
 		}
 		
 	} else if (id == "dump") {
