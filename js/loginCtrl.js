@@ -42,6 +42,7 @@ trumpOrDumpApp.controller('LoginCtrl',function($scope, firebase){
   }
 
 	$scope.login = function() {
+		firebase.login($scope.user.email,$scope.user.password);
 	}
 
 });
