@@ -5,24 +5,49 @@
 			<ng-include src="'partials/display.html'" ng-controller="DisplayCtrl"></ng-include>
 		</div>
 
-<!--The tweet-->
-	<div class="col-xs-8">
-		<div class = "Trump-headerinfo">
-			<img src="http://i.imgur.com/urXHXE6.png"/>
+	<!--The tweet-->
+		<div class="col-xs-4">
+			<span class = "pull-right">
+				<div class = "Trump-headerinfo">
+					<img src="http://i.imgur.com/urXHXE6.png"/>
+				</div>
+				<div class="tweet-container" >
+					<p style="padding-left:45px">{{getQuestion}}</p>
+
+				</div>
+				<div class = "Trump-footerinfo">
+					<img src = "http://i.imgur.com/0YkSv44.png"/>
+
+				</div>
+			</span>
 		</div>
-		<div class="tweet-container" >
-			<p style="padding-left:45px">{{getQuestion}}</p>
+
+		<span class="pull-right">
+					<ng-include src="'partials/highscore.html'" ng-controller="HighscoreCtrl"></ng-include>
+				</span>
+
+		<!-- including the highscore view and its controller
+		<div class="col-xl-12">
+			<span class="pull-right">
+				<ng-include src="'partials/highscore.html'" ng-controller="HighscoreCtrl"></ng-include>
+			</span>
 		</div>
-		<div class = "Trump-footerinfo">
-			<img src = "http://i.imgur.com/0YkSv44.png"/>
-		</div>
+		-->
+
 	</div>
-</div>
+
+	
+
 <!--
 <p><a href="#/answer/trump" class="btn btn-primary">Trump</a></p>
 <p><a href="#/answer/dump" class="btn btn-primary">Dump</a></p>
 -->
 
+
+
+
+<script> 
+function allowDrop(ev) {
 <div class="row">
 	<div class="col-xs-4">
 		<p>Trump</p>
