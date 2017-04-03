@@ -5,40 +5,61 @@
 			<ng-include src="'partials/display.html'" ng-controller="DisplayCtrl"></ng-include>
 		</div>
 
-<!--The tweet-->
-	<div class="col-xs-8">
-		<div class = "Trump-headerinfo">
-			<img src="http://i.imgur.com/urXHXE6.png"/>
+	<!--The tweet-->
+		<div class="col-xs-4">
+			<span class = "pull-right">
+				<div class = "Trump-headerinfo">
+					<img src="http://i.imgur.com/urXHXE6.png"/>
+				</div>
+				<div class="tweet-container" >
+					<p style="padding-left:45px">{{getQuestion}}</p>
+
+				</div>
+				<div class = "Trump-footerinfo">
+					<img src = "http://i.imgur.com/0YkSv44.png"/>
+
+				</div>
+			</span>
 		</div>
-		<div class="tweet-container" >
-			<p style="padding-left:45px">{{getQuestion}}</p>
+
+		<span class="pull-right">
+					<ng-include src="'partials/highscore.html'" ng-controller="HighscoreCtrl"></ng-include>
+				</span>
+
+		<!-- including the highscore view and its controller
+		<div class="col-xl-12">
+			<span class="pull-right">
+				<ng-include src="'partials/highscore.html'" ng-controller="HighscoreCtrl"></ng-include>
+			</span>
 		</div>
-		<div class = "Trump-footerinfo">
-			<img src = "http://i.imgur.com/0YkSv44.png"/>
-		</div>
+		-->
+
 	</div>
-</div>
+
+	
+
 <!--
 <p><a href="#/answer/trump" class="btn btn-primary">Trump</a></p>
 <p><a href="#/answer/dump" class="btn btn-primary">Dump</a></p>
 -->
 
-<div class="row">
-	<div class="col-xs-4">
-		<p>Trump</p>
-		
-		<div id="trump" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	<div class="row">
+		<div class="col-xs-4">
+			<p>Trump</p>
+			<div id="trump" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		</div>
+		<div class="col-xs-4">
+			<br>
+			<i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity" draggable="true"  ondragstart="drag(event)"></i>
+		</div>
+		<div class="col-xs-4">
+			<p>Dump</p>
+			<div id="dump" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		</div>	
 	</div>
-	<div class="col-xs-4">
-		<br>
-		<i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity" draggable="true"  ondragstart="drag(event)"></i>
-	</div>
-	<div class="col-xs-4">
-		<p>Dump<p/>
-		
-		<i class="fa fa-trash-o fa-4x div1" id="dump" aria-hidden="true" ondrop="drop(event)" ondragover="allowDrop(event)"></i>
-	</div>	
 </div>
+
+
 <script> 
 function allowDrop(ev) {
     ev.preventDefault();
