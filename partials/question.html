@@ -26,8 +26,8 @@
 <div class="row">
 	<div class="col-xs-4">
 		<p>Trump</p>
+		<i class="fa fa-bullseye fa-4x div1" id="trump" ondrop="drop(event)" ondragover="allowDrop(event), changeicon('trump', 1)" ondragleave="changeicon('trump', 2)" aria-hidden="true"></i>
 		
-		<div id="trump" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 	</div>
 	<div class="col-xs-4">
 		<br>
@@ -36,11 +36,30 @@
 	<div class="col-xs-4">
 		<p>Dump<p/>
 		
-		<i class="fa fa-trash-o fa-4x div1" id="dump" aria-hidden="true" ondrop="drop(event)" ondragover="allowDrop(event)"></i>
+		<i class="fa fa-trash-o fa-4x div1" id="dump" aria-hidden="true" ondrop="drop(event)" ondragover="allowDrop(event), changeicon('dump', 1)" ondragleave="changeicon('dump', 2)"></i>
 	</div>	
 </div>
-<script> 
-function allowDrop(ev) {
+<script>
+
+function changeicon(id, flag){
+	if (id == "trump") {
+		if(flag == 1){
+			document.getElementById("trump").className = "fa fa-thumbs-up fa-4x div1";
+		} else if (flag == 2){
+			document.getElementById("trump").className = "fa fa-bullseye fa-4x div1";
+		}
+		
+	} else if (id == "dump") {
+		if (flag == 1) {
+			document.getElementById("dump").className = "fa fa fa-thumbs-down fa-4x div1";
+		} else if(flag == 2){
+			document.getElementById("dump").className = "fa fa-trash-o fa-4x div1";
+		}
+		
+	}
+}
+
+function allowDrop(ev, id) {
     ev.preventDefault();
 }
 
