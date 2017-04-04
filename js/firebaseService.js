@@ -52,6 +52,13 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       return firebase.auth().currentUser.uid;
     }
 
+    this.myHighScore = function(cb) {
+      firebase.database().ref("/users/" + firebase.auth().currentUser.uid).once("value",function(data){
+        score = JSON.parse(JSON.stringify(data)).highScore;
+        cb(score);
+      });
+    }
+
     this.getDatabase = function(input,cb) {
       firebase.database().ref(String(input)).once("value",function(snapshot){
         cb(JSON.parse(JSON.stringify(snapshot)));
@@ -59,6 +66,26 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       function(error){
         console.log(error);
         console.log(firebase.auth().currentUser);
+      });
+    }
+
+    this.setHighScore = function(score) {
+      firebase.database().ref("/users/" + firebase.auth().currentUser.uid).once("value",function(data){
+        firebase.database().ref("/users/" + firebase.auth().currentUser.uid ).update({"highScore":score});
+      });
+    }
+
+    this.setStatistics = function(rightwrong) {
+      firebase.database().ref("/statistics").once("value",function(data) {
+        data = JSON.parse(JSON.stringify(data));
+        if (rightwrong == "right") {
+          data[0] +=1;
+        }
+        else if (rightwrong == "wrong") {
+          data[1] +=1;
+        }
+        console.log(data);
+        firebase.database().ref("/statistics/").update(data);
       });
     }
 

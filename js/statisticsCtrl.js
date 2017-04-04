@@ -50,7 +50,7 @@ trumpOrDumpApp.controller('StatisticsCtrl',function($scope, firebase){
     color = d3.scale.ordinal().range(['#b4aeff','#ff8c8c']);
     data = [{"label":"Right", "value":$scope.right}, 
             {"label":"Wrong", "value":$scope.wrong}];
-    d3.select("stat")[0][0].innerHTML = "";
+    //d3.select("stat")[0][0].innerHTML = "";
     var vis = d3.select("stat")
         .append("svg:svg")              //create the SVG element inside the <body>
         .data([data])                   //associate our data with the document
