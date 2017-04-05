@@ -56,8 +56,15 @@
 
 	</div>
 	<div class="col-xs-4">
+	
 		<br>
 		<i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity" draggable="true"  ondragstart="drag(event)"></i>
+		<p class = "speech" id = "bubble">Drag me</p>
+		<br/>
+		<div class="col-xs-4">
+		
+
+		</div>
 	</div>
 	<div class="col-xs-4">
 		<p>Dump<p/>
@@ -96,6 +103,7 @@ function drag(ev) {
     document.getElementsByClassName("div1")[1].style.background = "white";
     document.getElementsByClassName("div1")[0].style.color = "black";
     document.getElementsByClassName("div1")[1].style.color = "black";
+    document.getElementById("bubble").style.display = "none";
 }
 
 function drop(ev) {
