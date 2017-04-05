@@ -36,6 +36,17 @@
 
 	</div>
 
+	
+
+<!--
+<p><a href="#/answer/trump" class="btn btn-primary">Trump</a></p>
+<p><a href="#/answer/dump" class="btn btn-primary">Dump</a></p>
+-->
+
+
+
+
+
 
 <div class="row">
 	<div class="col-xs-4">
@@ -64,24 +75,22 @@
 
 <script>
 
-	function changeicon(id, flag){
-		if (id == "trump") {
-			if(flag == 1){
-				document.getElementById("trump").className = "fa fa-thumbs-up fa-4x div1";
-			} else if (flag == 2){
-				document.getElementById("trump").className = "fa fa-usd fa-4x div1";
-			}
-			
-		} else if (id == "dump") {
-			if (flag == 1) {
-				document.getElementById("dump").className = "fa fa fa-thumbs-down fa-4x div1";
-			} else if(flag == 2){
-				document.getElementById("dump").className = "fa fa-trash-o fa-4x div1";
-			}
-			
+function changeicon(id, flag){
+	if (id == "trump") {
+		if(flag == 1){
+			document.getElementById("trump").className = "fa fa-thumbs-up fa-4x div1";
+		} else if (flag == 2){
+			document.getElementById("trump").className = "fa fa-usd fa-4x div1";
 		}
+		
+	} else if (id == "dump") {
+		if (flag == 1) {
+			document.getElementById("dump").className = "fa fa fa-thumbs-down fa-4x div1";
+		} else if(flag == 2){
+			document.getElementById("dump").className = "fa fa-trash-o fa-4x div1";
+		}
+		
 	}
-<<<<<<< HEAD
 }
 
 function allowDrop(ev, id) {
@@ -110,32 +119,4 @@ function next(id) {
 	// Add /iProgProject/#/answer + id
 	location = '/#/answer/' + id;
 }
-=======
-
-	function allowDrop(ev, id) {
-	    ev.preventDefault();
-	}
-
-	function drag(ev) {
-	    ev.dataTransfer.setData("text", ev.target.id);
-	    document.getElementsByClassName("div1")[0].style.background = "white";
-	    document.getElementsByClassName("div1")[1].style.background = "white";
-	    document.getElementsByClassName("div1")[0].style.color = "black";
-	    document.getElementsByClassName("div1")[1].style.color = "black";
-	}
-
-	function drop(ev) {
-	    ev.preventDefault();
-	    var data = ev.dataTransfer.getData("text");
-	    ev.target.appendChild(document.getElementById(data));
-	    ev.toElement.style.background = "skyblue";
-	    ev.toElement.style.color = "white";
-	    setTimeout(function() { next(ev.toElement.id); }, 500);
-	}
-
-	function next(id) {
-		// Add /iProgProject/#/answer + id
-		location = '/#/answer/' + id;
-	}
->>>>>>> origin/master
 </script>
