@@ -48,7 +48,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
     var database = firebase.database();
     
     this.me = function() {
-      console.log(firebase.auth().currentUser.uid);
+      console.log("uid: ", firebase.auth().currentUser.uid);
       return firebase.auth().currentUser.uid;
     }
 

@@ -103,9 +103,21 @@ function drag(ev) {
     document.getElementsByClassName("div1")[1].style.background = "white";
     document.getElementsByClassName("div1")[0].style.color = "black";
     document.getElementsByClassName("div1")[1].style.color = "black";
-    document.getElementById("bubble").style.display = "none";
+    fadeOutEffect();
 }
-
+function fadeOutEffect() {
+    var fadeTarget = document.getElementById("bubble");
+    var fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity < 0.1) {
+            clearInterval(fadeEffect);
+        } else {
+            fadeTarget.style.opacity -= 0.1;
+        }
+    }, 20);
+}
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");

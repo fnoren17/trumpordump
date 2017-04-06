@@ -35,10 +35,11 @@
 
 trumpOrDumpApp.controller('LoginCtrl',function($scope, firebase){
 	
-	$scope.user = {email:"perjaa@kth.se", password:"testingtesting"};
+	$scope.user = {email:"felixnor@kth.se", password:"testingtesting"};
 
 	$scope.newAccount = function() {
 	 firebase.newAccount($scope.user.email,$scope.user.password);
+   //console.log("created new acc with UN ", $scope.user.email, "and PW", $scope.user.password)
   }
 
 	$scope.login = function() {
