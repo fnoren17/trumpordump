@@ -105,6 +105,8 @@ function drag(ev) {
     document.getElementsByClassName("div1")[1].style.color = "black";
     fadeOutEffect();
 }
+
+// Thanks to http://stackoverflow.com/questions/29017379/how-to-make-fadeout-effect-with-pure-javascript for this fadeout function
 function fadeOutEffect() {
     var fadeTarget = document.getElementById("bubble");
     var fadeEffect = setInterval(function () {
@@ -118,6 +120,7 @@ function fadeOutEffect() {
         }
     }, 20);
 }
+
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
