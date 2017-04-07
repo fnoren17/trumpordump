@@ -1,12 +1,14 @@
-<div class="col-md-offset-5">
-  <form novalidate>
-    Email Adress (Full):<br>
-    <input type="text" ng-model="user.email"><br>
-    Password:<br>
-    <input type="password" ng-model="user.password">
-    <br><br>
-    <button class = "loginButtons" ng-click="reset()">Clear</button>
-    <a href = "#/question"> <button class = "loginButtons" ng-click="login()">Log in</button></a>
-    <button class = "loginButtons" ng-click="newAccount()">Create new account</button>
-  </form>
+<div class = "login">
+    <div class="col-md-offset-5">
+      <form novalidate>
+        Email Adress (Full):<br>
+        <input type="text" ng-model="user.email"><br>
+        Password:<br>
+        <input type="password" ng-model="user.password">
+        <br><br>
+        <button class = "loginButtons" ng-click="reset()">Clear</button>
+        <a href = "#/question"> <button class = "loginButtons" ng-click="login()">Log in</button></a></form><br/>
+        <button class = "loginButtons" ng-click="newAccount()">Create new account</button>
+      </form>
+    </div>
 </div>

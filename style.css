@@ -12,6 +12,12 @@
   box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 10px 25px 0 rgba(0,0,0,0.19);
 }
 
+#loginDiv {
+      background-color: #cc2900
+
+
+}
+
 
 p.speech {
   position: relative;

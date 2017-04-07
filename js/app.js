@@ -7,7 +7,7 @@ trumpOrDumpApp.config(['$routeProvider',
     $routeProvider.
       when('/start', {
         templateUrl: 'partials/start.html',
-		controller: 'StartCtrl'
+		    controller: 'StartCtrl'
       }).
       when('/question', {
         templateUrl: 'partials/question.html',
