@@ -1,24 +1,24 @@
 
 <!-- First Grid -->
-<div class="w3-row-padding w3-padding-32 w3-container">
+<div class="w3-row-padding w3-padding-16 w3-container">
   <div class="w3-content">
     <div class="w3-twothird">
-      <h1>Instructions</h1>
-      <h5 class="w3-padding-32">Welcome! In this game, you will be presented with a tweet, which either was written by Donald Trump himself, or it's something we made up on the spot. The point of the game is to figure out if a tweet is real or fake, and each correct answer grants one point. If you are wrong, however, we will subtract 5 points from your score.</h5>
+      <h2>Instructions</h2>
+      <p>Welcome! In this game, you will be presented with a tweet, which either was written by Donald Trump himself, or it's something we made up on the spot. The point of the game is to figure out if a tweet is real or fake, and each correct answer grants one point. If you are wrong, however, we will subtract 5 points from your score.</p>
     </div>
 
     <div class="w3-third w3-center">
-     <img src="http://i2.cdn.cnn.com/cnnnext/dam/assets/161107120239-01-trump-parry-super-169.jpg" alt="Trump" height="100%" width="100%">
+     <img src="http://i2.cdn.cnn.com/cnnnext/dam/assets/161107120239-01-trump-parry-super-169.jpg" alt="Trump" height="75%" width="75%">
     </div>
   </div>
 </div>
 
 <!--VS-->
 
-<div class="w3-row-padding w3-padding-8 w3-container">
+<div class="w3-row-padding w3-container">
   <div class="w3-content">
       <div class="w3-third w3-center">
-      <img style="padding-left: 300px" src="https://img.clipartfest.com/692741231a06c2d6df12ce88304b320f_versus-clipart-1-versus-icon-clipart_299-225.png" alt="Versus" height="150px"/>
+      <img style="padding-left: 300px" src="https://img.clipartfest.com/692741231a06c2d6df12ce88304b320f_versus-clipart-1-versus-icon-clipart_299-225.png" alt="Versus" height="100px"/>
     </div>
   </div>
 </div>
@@ -27,15 +27,42 @@
 <div class="w3-row-padding w3-padding-32 w3-container">
   <div class="w3-content">
     <div class="w3-third w3-center">
-        <img src="http://i.imgur.com/zYRWLo7.png" alt="Dump" height="100%" width= "100%">
+        <img src="http://i.imgur.com/zYRWLo7.png" alt="Dump" height="50%" width= "50%">
   </div>
 
     <div class="w3-twothird">
-      <h5 class="w3-padding-32">The fake tweets are generated using a markov chain, where a couple of random words from Trumps existing tweets is extracted and glued together into one beautiful mess. This is why you might recognize some of the fake tweets as real ones, because they are partially real. Good luck!</h5>
+      <p >The fake tweets are generated using a markov chain, where a couple of random words from Trumps existing tweets is extracted and glued together into one beautiful mess. This is why you might recognize some of the fake tweets as real ones, because they are partially real. After each tweet, you are notifyed by Trump if you were correct or not, aswell as examine some statistics for the game overall. Good luck!</p>
     </div>
   </div>
 </div>
-<div class="w3-container w3-red w3-center" style="padding:32px 16px">
-    <a style="padding-top:32px" href ="#/login" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Let's get Trumping</a>
+
+<div id = "loginDiv" class="col-xl-12" style= "padding-top:10px; padding-bottom: 10px">
+<div class="col-md-offset-5">
+  <div id = "login" style="display:none;" class="answer_list" >
+      <!--<div class="col-md-offset-5">-->
+        <form novalidate>
+          <p><font color="white">Email Adress (Full):</font></p>
+          <input type="text" ng-model="user.email"><br>
+          <p><font color="white">Password:</font></p>
+          <input type="password" ng-model="user.password">
+          <br><br>
+          <button class = "loginButtons" ng-click="reset()">Clear</button>
+          <a href = "#/question"> <button class = "loginButtons" ng-click="login()">Log in</button></a></form><br/>
+          <button class = "loginButtons" ng-click="newAccount()">Create new account</button>
+        </form>
+     <!-- </div>-->
+  </div>
+   <button class = "loginButtons" ng-click="login()" onclick="showDiv()">Login</button>
+  <a href = "#/question"> <button class = "loginButtons" ng-click="login()">Continue as guest</button></a>
+</div>
+    <!--<a style="padding-top:16px" href ="#/login" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" id="startButton">Let's get Trumping</a>-->
+</div>
+
+<script>
+function showDiv() {
+   document.getElementById('login').style.display = "block";
+}
+</script>
+
                         
 
