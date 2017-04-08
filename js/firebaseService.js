@@ -48,7 +48,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
     var database = firebase.database();
     
     this.me = function() {
-      console.log("uid: ", firebase.auth().currentUser.uid);
+      console.log("uid: ", firebase.auth().currentUser.email);
       return firebase.auth().currentUser.uid;
     }
 
@@ -102,7 +102,10 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         }
         console.log(error);
       });
-      console.log(firebase.auth().currentUser);
+      console.log("Fb.auth(): ", firebase.auth().currentUser.email);
+      if (typeof firebase.auth().currentUser.email == "string"){
+        window.location.replace("#/question");
+      }
     }
 
     this.newAccount = function(email, password) {
