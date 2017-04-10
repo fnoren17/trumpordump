@@ -1,5 +1,5 @@
 
-trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase){
+trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase, Trump){
 
    	var highScoreList = [];
 

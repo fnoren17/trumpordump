@@ -103,7 +103,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         }
         console.log(error);
       });
-      console.log("Fb.auth(): ", firebase.auth().currentUser.email);
+      // console.log("Fb.auth(): ", firebase.auth().currentUser.email);
       // if (typeof firebase.auth().currentUser.email == "string"){
       //   window.location.replace("#/question");
       // }
@@ -122,6 +122,10 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       }
       console.log(error);
     });
+      var userId = firebase.auth().currentUser.uid;
+      var JSONDATA = '{"highScore" : 0,"tweetsSeen" : [ true ]}';
+      console.log(JSONDATA);
+      firebase.database().ref('users/' + userId).set(JSON.parse(JSONDATA));
     }
 
     return this;
