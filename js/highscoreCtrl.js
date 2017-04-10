@@ -7,7 +7,8 @@ trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase){
 
       var data = JSON.parse(JSON.stringify(snapshot));
       var counter = 0;
-      var UserScore = -1;
+      var UserScore = Trump.getScore();
+      console.log("UserScore: ",UserScore);
     for (var thing in data) {
           highScoreList.push(data[thing].highScore);
           if(thing == firebase.me()) {UserScore = data[thing].highScore;}

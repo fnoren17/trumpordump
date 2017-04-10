@@ -48,12 +48,13 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
     var database = firebase.database();
     
     this.me = function() {
-      console.log("uid: ", firebase.auth().currentUser.email);
+      console.log("uid: ", firebase.auth().currentUser.uid);
       return firebase.auth().currentUser.uid;
     }
 
     this.myHighScore = function(cb) {
       firebase.database().ref("/users/" + firebase.auth().currentUser.uid).once("value",function(data){
+        console.log("JSON: ",JSON.parse(JSON.stringify(data)));
         score = JSON.parse(JSON.stringify(data)).highScore;
         cb(score);
       });
@@ -103,9 +104,9 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         console.log(error);
       });
       console.log("Fb.auth(): ", firebase.auth().currentUser.email);
-      if (typeof firebase.auth().currentUser.email == "string"){
-        window.location.replace("#/question");
-      }
+      // if (typeof firebase.auth().currentUser.email == "string"){
+      //   window.location.replace("#/question");
+      // }
     }
 
     this.newAccount = function(email, password) {
