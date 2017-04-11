@@ -1,6 +1,11 @@
 
-trumpOrDumpApp.controller('DisplayCtrl',function($scope, Trump){
+trumpOrDumpApp.controller('DisplayCtrl',function($scope, firebase, Trump){
 	
 	$scope.score = Trump.getScore();
+
+	$scope.signOut = function(){
+		firebase.signOut();
+	}
+
 	
 });

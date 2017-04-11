@@ -103,10 +103,17 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         }
         console.log(error);
       });
-      // console.log("Fb.auth(): ", firebase.auth().currentUser.email);
-      // if (typeof firebase.auth().currentUser.email == "string"){
-      //   window.location.replace("#/question");
-      // }
+      if(firebase.auth().currentUser.email){
+      window.location.href = "#/question";
+    }
+    }
+
+    this.signOut = function(){
+      firebase.auth().signOut().then(function() {
+        console.log('Signed Out');
+      }, function(error) {
+        console.error('Sign Out Error', error);
+      });
     }
 
     this.newAccount = function(email, password) {

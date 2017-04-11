@@ -38,23 +38,10 @@
 
 <div id = "loginDiv" class="col-xl-12" style= "padding-top:10px; padding-bottom: 10px">
 <div class="col-md-offset-5">
-  <div id = "login" style="display:none;" class="answer_list" >
+  <div id = "login" class="answer_list" >
       <ng-include src="'partials/login.html'" ng-controller="LoginCtrl"></ng-include>
-      <!--<div class="col-md-offset-5">-->
-        <!--<form novalidate>
-          <p><font color="white">Email Adress (Full):</font></p>
-          <input type="text" ng-model="user.email"><br>
-          <p><font color="white">Password:</font></p>
-          <input type="password" ng-model="user.password">
-          <br><br>
-          <button class = "loginButtons" ng-click="reset()">Clear</button>
-          <a href = "#/question"> <button class = "loginButtons" ng-click="login()">Log in</button></a></form><br/>
-          <button class = "loginButtons" ng-click="newAccount()">Create new account</button>
-        </form>-->
-     <!-- </div>-->
   </div>
-   <button class = "loginButtons" ng-click="login()" onclick="showDiv()">Login</button>
-  <a href = "#/question"> <button class = "loginButtons" ng-click="login()">Continue as guest</button></a>
+  
 </div>
     <!--<a style="padding-top:16px" href ="#/login" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" id="startButton">Let's get Trumping</a>-->
 </div>
