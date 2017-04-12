@@ -1,37 +1,3 @@
-/*
-  0. Gettin data for all users:
-    var reference = firebase.database().ref('users');
-    reference.on('value', function(snapshot) {
-      //Save variable using this: = JSON.parse(JSON.stringify(snapshot));
-    });
-  
-  1. Getting data for user: 
-    var userId = firebase.auth().currentUser.uid; 
-    var reference = firebase.database().ref('users/' + userId);
-    reference.on('value', function(snapshot) {
-      //Save variable using this: = JSON.parse(JSON.stringify(snapshot));
-    });
-  
-  2. Setting data for user: (will write over data so be careful)
-    var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('users/' + userId).set(JSONDATA); // change JSONDATA to whatever variable you use.
-  
-  3. Getting all tweets:
-    firebase.database().ref('tweets').on('value', function(snapshot) {
-      //Save variable using this: JSON.parse(JSON.stringify(snapshot));
-    });
-  
-  4. Adding or modifying a tweet and score for it:
-    var strVal = '{ "numberRight": 0,"numberWrong": 0,"totalNumber": 0}'; // if no guesses so far. Read data and change it for each guess.
-    firebase.database().ref('tweets/' + TWEETTEXT).set(JSON.parse(strVal)); // change TWEETTEXT to the text of the real or fake tweet and remove any dots (.)
-  
-  5, Gettin a tweet:
-    var reference = firebase.database().ref('tweets/' + TWEETTEXT);
-    reference.on('value', function(snapshot) {
-      //Save variable using this: = JSON.parse(JSON.stringify(snapshot));
-    });
-
-*/
 
 trumpOrDumpApp.controller('StatisticsCtrl',function($scope, firebase){
     var stat_data = "";
@@ -43,13 +9,18 @@ trumpOrDumpApp.controller('StatisticsCtrl',function($scope, firebase){
         $scope.wrong = stat_data[1];
       });
       
-    var w = 300,                        //width
-    h = 300,                            //height
-    r = 100,                            //radius
-       //builtin range of colors
+        // SIMPE CODE FOR MAKING A PIE CHART USING D3 VERY BASIC.
+        // SOURCE: http://bl.ocks.org/enjalot/1203641
+
+    var w = 300,//width
+        h = 300,//height
+        r = 100,//radius
+
+    // Colors
     color = d3.scale.ordinal().range(['#b4aeff','#ff8c8c']);
     data = [{"label":"Right", "value":$scope.right}, 
             {"label":"Wrong", "value":$scope.wrong}];
+
     //d3.select("stat")[0][0].innerHTML = "";
     var vis = d3.select("stat")
         .append("svg:svg")              //create the SVG element inside the <body>
