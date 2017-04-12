@@ -1,14 +1,15 @@
 <!-- including the currentScore view and its controller-->
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-xs-4">
+		<div class = "col-xs-1"></div> <!--Empty div, trying to make bootstrap do what I want it to-->
+		<div class="col-xs-2">
 			<ng-include src="'partials/display.html'" ng-controller="DisplayCtrl"></ng-include>
 		</div>
 
 	<!--The tweet-->
-		<div class="col-xs-4">
+		<div class="col-xs-5">
 			<span class = "pull-right">
-				<div class = "Trump-headerinfo">
+				<div class = "Trump-headerinfo" style = "padding-top: 10px">
 					<img src="images/trumpHeaderTweet.png-" alt = "TrumpTweetHeader"/>
 				</div>
 				<div class="tweet-container" >
@@ -19,26 +20,37 @@
 				</div>
 			</span>
 		</div>
-		<span class="pull-right">
-			<ng-include src="'partials/highscore.html'" ng-controller="HighscoreCtrl"></ng-include>
-		</span>
+		<div class = "col-xs-2">
+			<span class="pull-right">
+				<ng-include src="'partials/highscore.html'" ng-controller="HighscoreCtrl"></ng-include>
+			</span>
+		</div>
 	</div>
 </div>
 
 <!-- Draggable twitter bird code -->
 <div class="row" style="text-align: center">
-	<div class="col-xs-4">
+	<div class="col-xs-4" id = "Trump">
 		<p>Trump</p>
 		<i class="fa fa-usd fa-4x div1" id="trump" ondrop="drop(event)" ondragover="allowDrop(event), changeicon('trump', 1)" ondragleave="changeicon('trump', 2)" aria-hidden="true"></i>
+		<!--<div class="arrow" style= "padding-right: 220px"><br/> <h1>&#8592;</h1></div>-->
+
 	</div>
-	<div class="col-xs-1">
+	
+	<div class="col-xs-2" id = "birdDiv">
+	  <!--<div class="arrow"><br/> <h1>&#8592; &#8594;</h1></div>-->
 		<br>
 		<i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity" draggable="true"  ondragstart="drag(event)"></i>
-		<br>
-		<br>
+		<div class="arrow" style= "padding-right: 220px"><br/> <h1>&#8592;</h1></div>
+		<div class="arrow" style= "padding-left: 220px"><br/> <h1>&#8594;</h1></div>
 		<p class = "speech" id = "bubble">Drag me</p>
-		<br/>
 		
+		<br>
+		<br>
+		
+
+
+		<br/>
 	</div>
 	<div class="col-xs-4">
 		<p>Dump<p/>

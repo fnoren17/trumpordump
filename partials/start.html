@@ -34,15 +34,15 @@
     </div>
   </div>
 </div>
-
 <!--Login options-->
-<div id = "loginDiv" class="col-xl-12" style= "padding-top:10px; padding-bottom: 10px">
-  <div class="col-md-offset-5">
+<div id = "loginDiv" class="col-xl-12" style= "padding-top:10px; padding-bottom: 10px; align-content: center">
+  <div class="col-md-offset-5 vcenter">
+
     <div id = "login" style= "display:none;" class="answer_list" >
         <ng-include src="'partials/login.html'" ng-controller="LoginCtrl"></ng-include>
     </div>
       <button class = "loginButtons" id = "prelogin" ng-click="login()" onclick="showDiv(); hideDiv()">Login</button>
-      <a href = "#/question"> <button class = "loginButtons" id = "contAsGuest" ng-click="login()">Continue as guest</button></a>
+     <!-- <a href = "#/question"> <button class = "loginButtons" id = "contAsGuest" ng-click="login()">Continue as guest</button></a>-->
   </div>
 </div>
 
@@ -51,8 +51,8 @@ function showDiv() {
    document.getElementById('login').style.display = "block";
 }
 function hideDiv() {
-   document.getElementById('prelogin').style.display = "none";
-    document.getElementById('contAsGuest').style.display = "none";
+  document.getElementById('prelogin').style.display = "none";
+  //document.getElementById('contAsGuest').style.display = "none";
 }
 </script>
 

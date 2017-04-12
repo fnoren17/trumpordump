@@ -13,12 +13,78 @@
 }
 
 #loginDiv {
-      background-color: #cc2900
+      background-color: #f94a2f;
+}
 
+#prelogin {
+    background-color: #000; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px
+}
 
+#nextTweet {
+    background-color: #f94a2f;/*#cc2c00;*/
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    border-radius: 10px
+}
+
+/*Divider*/
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+#birdDiv {
+  position: relative
+}
+
+.Trump {
+  position: relative;
+}
+
+/*Arrows*/
+/*Credit to Captain Anonymous at https://codepen.io/anon/pen/gWOgwg*/
+.arrow {
+  margin: 5% auto;
+
+  bottom: 30px;
+  right:0px;
+  background: linear-gradient(to bottom, rgba(0, 255, 0, 0));
+  -webkit-animation: 1s soft-blink infinite alternate;
+  animation: 1s soft-blink infinite alternate;
+  position: absolute;
+
+  opacity: 0;
+}
+
+@-webkit-keyframes soft-blink {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes soft-blink {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  100% { opacity: 0.8; }
 }
 
 
+
+/*    */
 p.speech {
   position: relative;
   width: 100px;
