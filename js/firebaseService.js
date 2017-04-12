@@ -35,6 +35,7 @@
 
 trumpOrDumpApp.factory('firebase',function ($resource) {
 	
+  // CONFIG INFO
 	var config = {
         apiKey: "AIzaSyCnqSAk4dytUEu-U9W-DXmSaWwYf2ugaVc",
         authDomain: "trumpordump-952c7.firebaseapp.com",
@@ -45,13 +46,14 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
 
     firebase.initializeApp(config);
 
-    var database = firebase.database();
-    
+    // FUNCTIONS IN firebaseService
+
+    // Getting own user-id.
     this.me = function() {
-      //console.log("uid: ", firebase.auth().currentUser.uid);
       return firebase.auth().currentUser.uid;
     }
 
+    // Getting highscore
     this.myHighScore = function(cb) {
       firebase.database().ref("/users/" + firebase.auth().currentUser.uid).once("value",function(data){
         var score = JSON.parse(JSON.stringify(data)).highScore;
@@ -59,6 +61,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       });
     }
 
+    // Getting the database, whole or a part of it based on input.
     this.getDatabase = function(input,cb) {
       firebase.database().ref(String(input)).once("value",function(snapshot){
         cb(JSON.parse(JSON.stringify(snapshot)));
@@ -69,6 +72,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       });
     }
 
+    // Getting all the scores, using .on so more live.
     this.getLiveHighScore = function(cb) {
       firebase.database().ref('users/').on("value",function(snapshot){
         cb(JSON.parse(JSON.stringify(snapshot)));
@@ -79,12 +83,14 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       });
     }
 
+    // Setting the highscore when you reach a new highscore.
     this.setHighScore = function(score) {
       firebase.database().ref("/users/" + firebase.auth().currentUser.uid).once("value",function(data){
         firebase.database().ref("/users/" + firebase.auth().currentUser.uid ).update({"highScore":score});
       });
     }
 
+    // Setting statistics for wrong and right.
     this.setStatistics = function(rightwrong) {
       firebase.database().ref("/statistics").once("value",function(data) {
         data = JSON.parse(JSON.stringify(data));
@@ -99,6 +105,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       });
     }
 
+    // LOGIN FUNCTIONS
     this.login = function(email, password) {
       firebase.auth().signInWithEmailAndPassword(email, password)
       .catch(function(error) {
@@ -106,17 +113,18 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         var errorCode = error.code;
         var errorMessage = error.message;
         if (errorCode === 'auth/wrong-password') {
-         alert('Wrong password.');
+          alert('Wrong password.');
         } else {
           alert(errorMessage);
         }
         console.log(error);
       });
       if(firebase.auth().currentUser.email){
-      window.location.href = "#/question";
-    }
+        window.location.href = "#/question";
+      }
     }
 
+    // SIGNOUT FUNCTION
     this.signOut = function(){
       firebase.auth().signOut().then(function() {
         console.log('Signed Out');
@@ -125,6 +133,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       });
     }
 
+    // NEW ACCOUNT FUNCTION
     this.newAccount = function(email, password) {
       user = firebase.auth().createUserWithEmailAndPassword(email, password)
       .catch(function(error) {
@@ -138,12 +147,14 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       }
       console.log(error);
     });
+      // ADDING NEW USER DATA
       var userId = firebase.auth().currentUser.uid;
       var JSONDATA = '{"highScore" : 0,"tweetsSeen" : [ true ]}';
       console.log(JSONDATA);
       firebase.database().ref('users/' + userId).set(JSON.parse(JSONDATA));
     }
 
+    // RETURNING THIS
     return this;
 
 });
