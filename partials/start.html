@@ -14,7 +14,6 @@
 </div>
 
 <!--VS-->
-
 <div class="w3-row-padding w3-container">
   <div class="w3-content">
       <div class="w3-third w3-center">
@@ -36,22 +35,24 @@
   </div>
 </div>
 
+<!--Login options-->
 <div id = "loginDiv" class="col-xl-12" style= "padding-top:10px; padding-bottom: 10px">
-<div class="col-md-offset-5">
-
-  <div id = "login" style= "display:none;" class="answer_list" >
-      <ng-include src="'partials/login.html'" ng-controller="LoginCtrl"></ng-include>
+  <div class="col-md-offset-5">
+    <div id = "login" style= "display:none;" class="answer_list" >
+        <ng-include src="'partials/login.html'" ng-controller="LoginCtrl"></ng-include>
+    </div>
+      <button class = "loginButtons" id = "prelogin" ng-click="login()" onclick="showDiv(); hideDiv()">Login</button>
+      <a href = "#/question"> <button class = "loginButtons" id = "contAsGuest" ng-click="login()">Continue as guest</button></a>
   </div>
-    <button class = "loginButtons" ng-click="login()" onclick="showDiv()">Login</button>
-    <a href = "#/question"> <button class = "loginButtons" ng-click="login()">Continue as guest</button></a>
-
-</div>
-    <!--<a style="padding-top:16px" href ="#/login" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" id="startButton">Let's get Trumping</a>-->
 </div>
 
 <script>
 function showDiv() {
    document.getElementById('login').style.display = "block";
+}
+function hideDiv() {
+   document.getElementById('prelogin').style.display = "none";
+    document.getElementById('contAsGuest').style.display = "none";
 }
 </script>
 

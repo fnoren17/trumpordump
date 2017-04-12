@@ -9,131 +9,103 @@
 		<div class="col-xs-4">
 			<span class = "pull-right">
 				<div class = "Trump-headerinfo">
-					<img src="http://i.imgur.com/urXHXE6.png"/>
+					<img src="images/trumpHeaderTweet.png-" alt = "TrumpTweetHeader"/>
 				</div>
 				<div class="tweet-container" >
 					<p style="padding-left:45px">{{getQuestion}}</p>
-
 				</div>
 				<div class = "Trump-footerinfo">
-					<img src = "http://i.imgur.com/0YkSv44.png"/>
-
+					<img src = "images/trumpFooterTweet.png" alt = "TrumpTweetFooter"/>
 				</div>
 			</span>
 		</div>
-
 		<span class="pull-right">
 			<ng-include src="'partials/highscore.html'" ng-controller="HighscoreCtrl"></ng-include>
 		</span>
-
-		<!-- including the highscore view and its controller
-		<div class="col-xl-12">
-			<span class="pull-right">
-				<ng-include src="'partials/highscore.html'" ng-controller="HighscoreCtrl"></ng-include>
-			</span>
-		</div>
-		-->
-
 	</div>
 </div>
 
-	
-
-<!--
-<p><a href="#/answer/trump" class="btn btn-primary">Trump</a></p>
-<p><a href="#/answer/dump" class="btn btn-primary">Dump</a></p>
--->
-
-
-
-
-
-
-<div class="row">
+<!-- Draggable twitter bird code -->
+<div class="row" style="text-align: center">
 	<div class="col-xs-4">
 		<p>Trump</p>
-
 		<i class="fa fa-usd fa-4x div1" id="trump" ondrop="drop(event)" ondragover="allowDrop(event), changeicon('trump', 1)" ondragleave="changeicon('trump', 2)" aria-hidden="true"></i>
-
 	</div>
-	<div class="col-xs-4">
-	
+	<div class="col-xs-1">
 		<br>
 		<i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity" draggable="true"  ondragstart="drag(event)"></i>
+		<br>
+		<br>
 		<p class = "speech" id = "bubble">Drag me</p>
 		<br/>
-		<div class="col-xs-4">
 		
-
-		</div>
 	</div>
 	<div class="col-xs-4">
 		<p>Dump<p/>
-		
 		<i class="fa fa-trash-o fa-4x div1" id="dump" aria-hidden="true" ondrop="drop(event)" ondragover="allowDrop(event), changeicon('dump', 1)" ondragleave="changeicon('dump', 2)"></i>
 	</div>	
 </div>
 
 <script>
 
-function changeicon(id, flag){
-	if (id == "trump") {
-		if(flag == 1){
-			document.getElementById("trump").className = "fa fa-thumbs-up fa-4x div1";
-		} else if (flag == 2){
-			document.getElementById("trump").className = "fa fa-usd fa-4x div1";
+	function changeicon(id, flag){
+		if (id == "trump") {
+			if(flag == 1){
+				document.getElementById("trump").className = "fa fa-thumbs-up fa-4x div1";
+			} else if (flag == 2){
+				document.getElementById("trump").className = "fa fa-usd fa-4x div1";
+			}
+			
+		} else if (id == "dump") {
+			if (flag == 1) {
+				document.getElementById("dump").className = "fa fa fa-thumbs-down fa-4x div1";
+			} else if(flag == 2){
+				document.getElementById("dump").className = "fa fa-trash-o fa-4x div1";
+			}
+			
 		}
-		
-	} else if (id == "dump") {
-		if (flag == 1) {
-			document.getElementById("dump").className = "fa fa fa-thumbs-down fa-4x div1";
-		} else if(flag == 2){
-			document.getElementById("dump").className = "fa fa-trash-o fa-4x div1";
-		}
-		
 	}
-}
 
-function allowDrop(ev, id) {
-    ev.preventDefault();
-}
+	function allowDrop(ev, id) {
+	    ev.preventDefault();
+	}
 
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-    document.getElementsByClassName("div1")[0].style.background = "white";
-    document.getElementsByClassName("div1")[1].style.background = "white";
-    document.getElementsByClassName("div1")[0].style.color = "black";
-    document.getElementsByClassName("div1")[1].style.color = "black";
-    fadeOutEffect();
-}
+	function drag(ev) {
+	    ev.dataTransfer.setData("text", ev.target.id);
+	    document.getElementsByClassName("div1")[0].style.background = "white";
+	    document.getElementsByClassName("div1")[1].style.background = "white";
+	    document.getElementsByClassName("div1")[0].style.color = "black";
+	    document.getElementsByClassName("div1")[1].style.color = "black";
+	    fadeOutEffect();
+	}
 
-// Thanks to http://stackoverflow.com/questions/29017379/how-to-make-fadeout-effect-with-pure-javascript for this fadeout function
-function fadeOutEffect() {
-    var fadeTarget = document.getElementById("bubble");
-    var fadeEffect = setInterval(function () {
-        if (!fadeTarget.style.opacity) {
-            fadeTarget.style.opacity = 1;
-        }
-        if (fadeTarget.style.opacity < 0.1) {
-            clearInterval(fadeEffect);
-        } else {
-            fadeTarget.style.opacity -= 0.1;
-        }
-    }, 20);
-}
+	// Thanks to http://stackoverflow.com/questions/29017379/how-to-make-fadeout-effect-with-pure-javascript for this fadeout function
+	function fadeOutEffect() {
+	    var fadeTarget = document.getElementById("bubble");
+	    var fadeEffect = setInterval(function () {
+	        if (!fadeTarget.style.opacity) {
+	            fadeTarget.style.opacity = 1;
+	        }
+	        if (fadeTarget.style.opacity < 0.1) {
+	            clearInterval(fadeEffect);
+	        } else {
+	            fadeTarget.style.opacity -= 0.1;
+	        }
+	    }, 20);
+	}
 
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-    ev.toElement.style.background = "skyblue";
-    ev.toElement.style.color = "white";
-    setTimeout(function() { next(ev.toElement.id); }, 500);
-}
+	function drop(ev) {
+	    ev.preventDefault();
+	    var data = ev.dataTransfer.getData("text");
+	    ev.target.appendChild(document.getElementById(data));
+	    ev.toElement.style.background = "skyblue";
+	    ev.toElement.style.color = "white";
+	    setTimeout(function() { next(ev.toElement.id); }, 500);
+	}
 
-function next(id) {
-	// Add /iProgProject/#/answer + id
-	location = '/iProgProject/#/answer/' + id;
-	//location = '#/answer/' + id;
-}
+	function next(id) {
+		// Add /iProgProject/#/answer + id
+		//location = '/iProgProject/#/answer/' + id;
+		location = '#/answer/' + id;
+	}
 </script>
