@@ -3,8 +3,7 @@ trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase, Trump){
 
    	var highScoreList = [];
 
-	  firebase.getDatabase('users',function(snapshot) {
-
+	  firebase.getLiveHighScore(function(snapshot) {
       var data = JSON.parse(JSON.stringify(snapshot));
       var counter = 0;
       var UserScore = Trump.getScore();
@@ -19,7 +18,7 @@ trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase, Trump){
         var animals = ["Bison","Trump Supporter","Bald eagle","Orange","Fake news journalist"];
         animals.sort(function(a, b){return 0.5 - Math.random()});
 
-        $scope.$apply(function () {
+        //$scope.$apply(function () {
           $scope.firstAnimal = "Anonymous " + animals[0];
         $scope.secondAnimal = "Anonymous " + animals[1];
         $scope.thirdAnimal = "Anonymous " + animals[2];
@@ -36,6 +35,6 @@ trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase, Trump){
         $scope.firstPoints = highScoreList[0];
         $scope.secondPoints = highScoreList[1];
         $scope.thirdPoints = highScoreList[2];
-        });
+        //});
     });
 });
