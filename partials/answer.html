@@ -1,17 +1,17 @@
 <!-- including the currentScore view and its controller-->
 <div class="container">
 	<div class="row">
-		<div class="col-xs-4">
+		<div class="col-sm-4">
 			<ng-include src="'partials/display.html'" ng-controller="DisplayCtrl"></ng-include>
 
 			<p>{{showAnswer}}</p>
 
-			<img ng-src = "{{imagePattern}}" height=100px witdh=100px align="center">
+			<img ng-src = "{{imagePattern}}" height="100px" align="center">
 		</div>
-		<div class="col-xs-4">
+		<div class="col-sm-4">
 			<ng-include src="'partials/statitics.html'" ng-controller="StatisticsCtrl"></ng-include>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-sm-4">
 			<ng-include src="'partials/highscore.html'" ng-controller="HighscoreCtrl"></ng-include>
 			<p><br/><br/><br/><a href="#/question" class="btn btn-primary" id = "nextTweet">Next tweet</a></p>
 

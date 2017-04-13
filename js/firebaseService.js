@@ -150,7 +150,6 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       // ADDING NEW USER DATA
       var userId = firebase.auth().currentUser.uid;
       var JSONDATA = '{"highScore" : 0,"tweetsSeen" : [ true ]}';
-      console.log(JSONDATA);
       firebase.database().ref('users/' + userId).set(JSON.parse(JSONDATA));
     }
 
