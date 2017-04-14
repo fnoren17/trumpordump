@@ -119,9 +119,9 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         }
         console.log(error);
       });
-      if(firebase.auth().currentUser.email){
-        window.location.href = "#/question";
-      }
+      //if(firebase.auth().currentUser.email){
+      //  window.location.href = "#/question";
+      //}
     }
 
     // SIGNOUT FUNCTION

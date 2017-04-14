@@ -8,7 +8,8 @@ trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase, Trump){
       var data = JSON.parse(JSON.stringify(snapshot));
       var counter = 0;
       var UserScore = Trump.getScore();
-      console.log("UserScore: ",UserScore);
+      //console.log("UserScore: ",UserScore);
+      //console.log(snapshot);
 
     // FINDING USER
     for (var thing in data) {
