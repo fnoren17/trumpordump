@@ -122,14 +122,12 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       //if(firebase.auth().currentUser.email){
       //  window.location.href = "#/question";
       //}
-      setTimeout(function() {
-        window.location.href = "#/question";}, 1000);
     }
 
     // SIGNOUT FUNCTION
     this.signOut = function(){
       firebase.auth().signOut().then(function() {
-        console.log('Signed Out');
+        ///console.log('Signed Out');
       }, function(error) {
         console.error('Sign Out Error', error);
       });
@@ -159,9 +157,6 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         firebase.database().ref('users/' + userId).set(JSON.parse(JSONDATA));
       }, 1000);
     }
-    setTimeout(function() {
-        window.location.href = "#/question"}, 2000);
-
     // RETURNING THIS
     return this;
 
