@@ -26,9 +26,8 @@
 <div class="w3-row-padding w3-padding-32 w3-container">
   <div class="w3-content">
     <div class="w3-third w3-center">
-        <img src="http://i.imgur.com/zYRWLo7.png" alt="Dump" height="50%" width= "50%">
-  </div>
-
+      <img src="http://i.imgur.com/zYRWLo7.png" alt="Dump" height="50%" width= "50%">
+    </div>
     <div class="w3-twothird">
       <p >The fake tweets are generated using a markov chain, where a couple of random words from Trumps existing tweets is extracted and glued together into one beautiful mess. This is why you might recognize some of the fake tweets as real ones, because they are partially real. After each tweet, you are notifyed by Trump if you were correct or not, aswell as examine some statistics for the game overall. Good luck!</p>
     </div>
@@ -37,22 +36,21 @@
 <!--Login options-->
 <div id = "loginDiv" class="col-xl-12" style= "padding-top:10px; padding-bottom: 10px; align-content: center">
   <div class="col-md-offset-5 vcenter">
-
     <div id = "login" style= "display:none;" class="answer_list" >
-        <ng-include src="'partials/login.html'" ng-controller="LoginCtrl"></ng-include>
+      <ng-include src="'partials/login.html'" ng-controller="LoginCtrl"></ng-include>
     </div>
-      <button class = "loginButtons" id = "prelogin" ng-click="login()" onclick="showDiv(); hideDiv()">Login</button>
-     <!-- <a href = "#/question"> <button class = "loginButtons" id = "contAsGuest" ng-click="login()">Continue as guest</button></a>-->
+    <button class = "loginButtons" id = "prelogin" ng-click="login()" onclick="showDiv(); hideDiv()">Login</button>
   </div>
 </div>
 
 <script>
+// TODO
+// FLYTTA KDEN TILL START CONTROLLER...
 function showDiv() {
    document.getElementById('login').style.display = "block";
 }
 function hideDiv() {
   document.getElementById('prelogin').style.display = "none";
-  //document.getElementById('contAsGuest').style.display = "none";
 }
 </script>
 

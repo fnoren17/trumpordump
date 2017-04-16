@@ -122,6 +122,8 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       //if(firebase.auth().currentUser.email){
       //  window.location.href = "#/question";
       //}
+      setTimeout(function() {
+        window.location.href = "#/question";}, 1000);
     }
 
     // SIGNOUT FUNCTION
@@ -155,8 +157,10 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         var userId = user.na.uid;
         var JSONDATA = '{"highScore" : 0,"tweetsSeen" : [ true ]}';
         firebase.database().ref('users/' + userId).set(JSON.parse(JSONDATA));
-      }, 3000);
+      }, 1000);
     }
+    setTimeout(function() {
+        window.location.href = "#/question"}, 2000);
 
     // RETURNING THIS
     return this;
