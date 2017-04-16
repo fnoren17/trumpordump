@@ -1,7 +1,7 @@
 
 trumpOrDumpApp.controller('LoginCtrl',function($scope, firebase){
 	
-	$scope.user = {email:"test@test.se", password:"testing"};
+	$scope.user = {email:"", password:""};
 
 	$scope.newAccount = function() {
 	 firebase.newAccount($scope.user.email,$scope.user.password);

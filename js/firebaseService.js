@@ -147,10 +147,15 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       }
       console.log(error);
     });
-      // ADDING NEW USER DATA
-      var userId = firebase.auth().currentUser.uid;
-      var JSONDATA = '{"highScore" : 0,"tweetsSeen" : [ true ]}';
-      firebase.database().ref('users/' + userId).set(JSON.parse(JSONDATA));
+
+    // ADDING NEW USER DATA
+    // SERVER TAKES SOME TIME TO STORE NEW USER AND ASSIGNING ID
+
+    setTimeout(function() {
+        var userId = user.na.uid;
+        var JSONDATA = '{"highScore" : 0,"tweetsSeen" : [ true ]}';
+        firebase.database().ref('users/' + userId).set(JSON.parse(JSONDATA));
+      }, 3000);
     }
 
     // RETURNING THIS
