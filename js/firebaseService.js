@@ -49,12 +49,11 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
     // FUNCTIONS IN firebaseService
 
     //Redirect to question if you already are logged in   
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        window.location.href = "#/question";
+    firebase.auth().onAuthStateChanged(function(user){
+      if(user) {
+        window.location = "#/question";
       }
-    });
-
+      });    
     // Getting own user-id.
     this.me = function() {
       return firebase.auth().currentUser.uid;
@@ -125,9 +124,9 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
           alert(errorMessage);
         }
         console.log(error);
-      });
+      });Samt löser problemnet me
       
-      firebase.auth().onAuthStateChanged(user => {
+      firebase.auth().onAuthStateChanged(function(user){
         if(user) {
          window.location = "#/question";
         }
@@ -143,7 +142,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       firebase.auth().signOut().then(function() {
         ///console.log('Signed Out');
       }, function(error) {
-        console.error('Sign Out Error', error);
+        console.error('Sign Out Error', error);Samt löser problemnet me
       });
     }
 
@@ -162,7 +161,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       console.log(error);
     });
       
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(function(user){
       if(user) {
         window.location = "#/question";
       }

@@ -6,4 +6,6 @@ trumpOrDumpApp.controller('StartCtrl',function($scope,Trump){
 	function showDiv() {
    		document.getElementById('welcomeDiv').style.display = "block";
 	}
+
+
 });
