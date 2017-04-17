@@ -9,13 +9,13 @@ trumpOrDumpApp.controller('LoginCtrl',function($scope, firebase){
 	// New user
 	$scope.newAccount = function() {
 	 	firebase.newAccount($scope.user.email,$scope.user.password);
-   		setTimeout(function() {window.location.href = "#/question";}, 2000);
+   		//setTimeout(function() {window.location.href = "#/question";}, 2000);
    	}
 
    	// Log in
 	$scope.login = function() {
 		firebase.login($scope.user.email,$scope.user.password);
-		setTimeout(function() {window.location.href = "#/question";}, 2000);
+		//setTimeout(function() {window.location.href = "#/question";}, 2000);	  
 	}
 
 });

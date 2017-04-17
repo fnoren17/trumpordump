@@ -42,11 +42,18 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         databaseURL: "https://trumpordump-952c7.firebaseio.com",
         storageBucket: "trumpordump-952c7.appspot.com",
         messagingSenderId: "686668715673"
-    };
+  };
 
     firebase.initializeApp(config);
 
     // FUNCTIONS IN firebaseService
+
+    //Redirect to question if you already are logged in   
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        window.location.href = "#/question";
+      }
+    });
 
     // Getting own user-id.
     this.me = function() {
@@ -119,6 +126,13 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         }
         console.log(error);
       });
+      
+      firebase.auth().onAuthStateChanged(user => {
+        if(user) {
+         window.location = "#/question";
+        }
+      });
+
       //if(firebase.auth().currentUser.email){
       //  window.location.href = "#/question";
       //}
@@ -147,7 +161,12 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       }
       console.log(error);
     });
-
+      
+    firebase.auth().onAuthStateChanged(user => {
+      if(user) {
+        window.location = "#/question";
+      }
+      });
     // ADDING NEW USER DATA
     // SERVER TAKES SOME TIME TO STORE NEW USER AND ASSIGNING ID
 
