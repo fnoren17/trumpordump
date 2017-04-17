@@ -5,8 +5,9 @@ trumpOrDumpApp.controller('QuestionCtrl',function($scope, Trump){
 	
 	$scope.getQuestion = Trump.getTweet();
 
-	// TODO 
-	// FLYTTA DENNA KOD TILL CONTROLLER, VI SKA INTE HA JAVASCRIPT KOD HÄR!
+	$scope.list1 = {title: 'AngularJS - Drag Me'};
+	$scope.list2 = {};	
+
 
 	$scope.changeicon = function(id, flag) {
 		if (id == "trump") {

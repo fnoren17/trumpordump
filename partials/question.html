@@ -1,9 +1,16 @@
 <!-- including the currentScore view and its controller-->
 <div class="container-fluid">
 	<div class="row">
-		 <!--Empty div,<div class = "col-xs-2"></div> trying to make bootstrap do what I want it to-->
 		<div class="col-sm-3 col-xs-3">
 			<ng-include src="'partials/display.html'" ng-controller="DisplayCtrl"></ng-include>
+
+
+			<!--Kod för draggablity, funkar inte-->
+			<div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{animate:true}" ng-hide="!list1.title">{{list1.title}}</div>
+			<div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="list2" jqyoui-droppable style='height:50px;'>
+  <div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="list2" jqyoui-draggable ng-hide="!list2.title">{{list2.title}}</div>
+</div>
+
 		</div>
 
 	<!--The tweet-->
@@ -35,12 +42,10 @@
 	<div class="col-md-2 col-sm-3 col-xs-4" id = "Trump">
 		<p>Trump</p>
 		<i class="fa fa-usd fa-4x div1" id="trump" ondrop="drop(event)" ondragover="allowDrop(event), changeicon('trump', 1)" ondragleave="changeicon('trump', 2)" aria-hidden="true"></i>
-		<!--<div class="arrow" style= "padding-right: 220px"><br/> <h1>&#8592;</h1></div>-->
 
 	</div>
 	
 	<div class="col-md-2 col-sm-2 col-xs-4" id = "birdDiv">
-	  <!--<div class="arrow"><br/> <h1>&#8592; &#8594;</h1></div>-->
 		<br>
 		<i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity" draggable="true"  ondragstart="drag(event)"></i>
 		<div class="arrow" style= "padding-right: 320px"><br/> <h1>&#8592;</h1></div>
@@ -62,7 +67,7 @@
 	
 	// TODO 
 	// FLYTTA DENNA KOD TILL CONTROLLER, VI SKA INTE HA JAVASCRIPT KOD HÄR!
-
+	/*
 	function changeicon(id, flag){
 		if (id == "trump") {
 			if(flag == 1){
@@ -123,4 +128,5 @@
 		//location = '/iProgProject/#/answer/' + id;
 		location = '#/answer/' + id;
 	}
+	*/
 </script>
