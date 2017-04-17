@@ -1,7 +1,9 @@
 
 var trumpOrDumpApp = angular.module('trumpOrDump', ['ngRoute','ngResource','ngCookies','ngDragDrop']);
+// ngDragDrop is imported code so we can use angular while we drag and drop objects.
 
 
+// Config
 trumpOrDumpApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
