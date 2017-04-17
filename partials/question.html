@@ -2,12 +2,12 @@
 <div class="container-fluid">
 	<div class="row">
 		 <!--Empty div,<div class = "col-xs-2"></div> trying to make bootstrap do what I want it to-->
-		<div class="col-sm-2 col-xs-3">
+		<div class="col-sm-3 col-xs-3">
 			<ng-include src="'partials/display.html'" ng-controller="DisplayCtrl"></ng-include>
 		</div>
 
 	<!--The tweet-->
-		<div class="col-sm-6 col-xs-9">
+		<div class="col-sm-5 col-xs-9" style = "align-content: center">
 			<span >
 				<div style = "padding-top: 10px">
 					<img src="images/trumpHeaderTweet.png-" alt = "TrumpTweetHeader"/>
@@ -29,7 +29,7 @@
 </div>
 
 <!-- Draggable twitter bird code -->
-<div class="row" style="text-align: center">
+<div class="row">
 	<div class ="col-md-3 col-sm-2">
 	</div>
 	<div class="col-md-2 col-sm-3 col-xs-4" id = "Trump">
@@ -43,8 +43,8 @@
 	  <!--<div class="arrow"><br/> <h1>&#8592; &#8594;</h1></div>-->
 		<br>
 		<i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity" draggable="true"  ondragstart="drag(event)"></i>
-		<div class="arrow" style= "padding-right: 220px"><br/> <h1>&#8592;</h1></div>
-		<div class="arrow" style= "padding-left: 220px"><br/> <h1>&#8594;</h1></div>
+		<div class="arrow" style= "padding-right: 320px"><br/> <h1>&#8592;</h1></div>
+		<div class="arrow" style= "padding-left: 320px"><br/> <h1>&#8594;</h1></div>
 		<p class = "speech" id = "bubble">Drag me</p>	
 		<br>
 		<br>

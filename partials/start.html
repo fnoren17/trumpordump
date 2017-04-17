@@ -39,20 +39,10 @@
     <div id = "login" style= "display:none;" class="answer_list" >
       <ng-include src="'partials/login.html'" ng-controller="LoginCtrl"></ng-include>
     </div>
-    <button class = "loginButtons" id = "prelogin" ng-click="login()" onclick="showDiv(); hideDiv()">Login</button>
+    <button class = "loginButtons" id = "prelogin" ng-click="login(); showDiv(); hideDiv()">Login</button> 
   </div>
 </div>
 
-<script>
-// TODO
-// FLYTTA KDEN TILL START CONTROLLER...
-function showDiv() {
-   document.getElementById('login').style.display = "block";
-}
-function hideDiv() {
-  document.getElementById('prelogin').style.display = "none";
-}
-</script>
 
                         
 
