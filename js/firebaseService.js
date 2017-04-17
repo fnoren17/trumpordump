@@ -124,7 +124,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
           alert(errorMessage);
         }
         console.log(error);
-      });Samt löser problemnet me
+      });
       
       firebase.auth().onAuthStateChanged(function(user){
         if(user) {
@@ -142,7 +142,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       firebase.auth().signOut().then(function() {
         ///console.log('Signed Out');
       }, function(error) {
-        console.error('Sign Out Error', error);Samt löser problemnet me
+        console.error('Sign Out Error', error);
       });
     }
 
