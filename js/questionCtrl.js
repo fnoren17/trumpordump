@@ -8,7 +8,6 @@ trumpOrDumpApp.controller('QuestionCtrl',function($scope, Trump){
 	$scope.list1 = {title: 'AngularJS - Drag Me'};
 	$scope.list2 = {};	
 
-
 	$scope.changeicon = function(id, flag) {
 		if (id == "trump") {
 			if(flag == 1){
