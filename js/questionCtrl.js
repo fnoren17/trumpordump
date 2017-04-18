@@ -5,8 +5,18 @@ trumpOrDumpApp.controller('QuestionCtrl',function($scope, Trump){
 	
 	$scope.getQuestion = Trump.getTweet();
 
-	$scope.list1 = {title: 'AngularJS - Drag Me'};
-	$scope.list2 = {};	
+	$scope.listTweet = {title: 'thisAnswer'};
+	$scope.listTrump = {};
+	$scope.listDump = {};
+
+	$scope.$watch('listTweet', function(newValue, oldValue) {
+  		if (JSON.stringify($scope.listTrump) != '{}') {
+  			location = '#/answer/trump';
+  		}
+  		if (JSON.stringify($scope.listDump) != '{}') {
+  			location = '#/answer/dump';
+  		}
+	});
 
 	$scope.changeicon = function(id, flag) {
 		if (id == "trump") {

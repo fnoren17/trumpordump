@@ -140,3 +140,10 @@ p.speech:after {
   border: 15px solid;
   border-color: transparent transparent white transparent;
 }
+
+/* Drag */
+
+.thumbnail {
+  width: 85px;
+  height: 85px;
+}

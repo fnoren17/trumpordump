@@ -3,14 +3,6 @@
 	<div class="row">
 		<div class="col-sm-3 col-xs-3">
 			<ng-include src="'partials/display.html'" ng-controller="DisplayCtrl"></ng-include>
-
-
-			<!--Kod för draggablity, funkar inte-->
-			<div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{animate:true}" ng-hide="!list1.title">{{list1.title}}</div>
-
-			<div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="list2" jqyoui-droppable style='height:50px;'>
-  				<div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="list2" jqyoui-draggable ng-hide="!list2.title">{{list2.title}}</div>
-			</div>
 		</div>
 
 	<!--The tweet-->
@@ -36,6 +28,39 @@
 </div>
 
 <!-- Draggable twitter bird code -->
+
+<div class="row">
+	<div class ="col-md-3 col-sm-2">
+	</div>
+	<div class="col-md-2 col-sm-3 col-xs-4" id = "Trump">
+		<p>Trump</p>
+		<div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="listTrump" jqyoui-droppable>
+  				<div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="listTrump" jqyoui-draggable ng-hide="!listTrump.title"><i id="drag2" class="fa fa-twitter fa-4x w3-hover-opacity"></i></div>
+  		</div>
+
+	</div>
+	
+	<div class="col-md-2 col-sm-2 col-xs-4" id = "birdDiv">
+		<br>
+		<div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="listTweet" jqyoui-draggable="{animate:true}" ng-hide="!listTweet.title"><i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity"></i></div>
+		<div class="arrow" style= "padding-right: 320px"><br/> <h1>&#8592;</h1></div>
+		<div class="arrow" style= "padding-left: 320px"><br/> <h1>&#8594;</h1></div>
+		<p class = "speech" id = "bubble">Drag me</p>	
+		<br>
+		<br>
+		<br/>
+	</div>
+	<div class="col-md-2 col-sm-3 col-xs-4">
+		<p>Dump<p/>
+		<div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="listDump" jqyoui-droppable>
+  				<div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="listDump" jqyoui-draggable ng-hide="!listDump.title"><i id="drag3" class="fa fa-twitter fa-4x w3-hover-opacity"></i></div>
+  		</div>
+	</div>
+	<div class = "col-md-3 col-sm-2">
+	</div>
+</div>
+
+<!-- OLD DRAG CODE
 <div class="row">
 	<div class ="col-md-3 col-sm-2">
 	</div>
@@ -62,7 +87,7 @@
 	<div class = "col-md-3 col-sm-2">
 	</div>
 </div>
-
+-->
 <script>
 	
 	// TODO 
