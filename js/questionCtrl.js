@@ -49,7 +49,7 @@ trumpOrDumpApp.controller('QuestionCtrl',function($scope, Trump){
 	}
 
 	// Thanks to http://stackoverflow.com/questions/29017379/how-to-make-fadeout-effect-with-pure-javascript for this fadeout function
-	$scope.faceOutEffect = function() {
+	$scope.fadeOutEffect = function() {
 	    var fadeTarget = document.getElementById("bubble");
 	    var fadeEffect = setInterval(function () {
 	        if (!fadeTarget.style.opacity) {
