@@ -64,10 +64,6 @@ body,h1,h2,h3,h4,h5,h6 {
     float: none;
 }
 
-#birdDiv {
-
-}
-
 .Trump {
   position: relative;
 }
@@ -75,15 +71,10 @@ body,h1,h2,h3,h4,h5,h6 {
 /*Arrows*/
 /*Credit to Captain Anonymous at https://codepen.io/anon/pen/gWOgwg*/
 .arrow {
-  margin: 5% auto;
-
-  bottom: 30px;
-  right:0px;
   background: linear-gradient(to bottom, rgba(0, 255, 0, 0));
   -webkit-animation: 1s soft-blink infinite alternate;
   animation: 1s soft-blink infinite alternate;
-  position: absolute;
-
+  position: relative;
   opacity: 0;
 }
 
@@ -143,7 +134,15 @@ p.speech:after {
 
 /* Drag */
 
+#birdDiv {
+  margin: auto;
+  text-align: center;
+  padding-top: 20px;
+}
+
 .thumbnail {
-  width: 85px;
-  height: 85px;
+  vertical-align: middle;
+  margin: auto;
+  text-align: center;
+  height: 80px;
 }

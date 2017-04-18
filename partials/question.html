@@ -29,35 +29,36 @@
 
 <!-- Draggable twitter bird code -->
 
-<div class="row">
-	<div class ="col-md-3 col-sm-2">
-	</div>
-	<div class="col-md-2 col-sm-3 col-xs-4" id = "Trump">
-		<p>Trump</p>
+<div class="row" id="birdDiv">
+	<div class="col-md-2 col-sm-2 col-xs-2"></div>
+	<div class="col-md-2 col-sm-2 col-xs-2" id = "Trump">
+		<p>Trump <i class="fa fa-usd"></i></p>
 		<div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="listTrump" jqyoui-droppable>
-  				<div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="listTrump" jqyoui-draggable ng-hide="!listTrump.title"><i id="drag2" class="fa fa-twitter fa-4x w3-hover-opacity"></i></div>
+  			<div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="listTrump" jqyoui-draggable ng-hide="!listTrump.title"><i id="drag2" class="fa fa-twitter fa-4x w3-hover-opacity"></i></div>
   		</div>
 
 	</div>
-	
-	<div class="col-md-2 col-sm-2 col-xs-4" id = "birdDiv">
-		<br>
-		<div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="listTweet" jqyoui-draggable="{animate:true}" ng-hide="!listTweet.title"><i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity"></i></div>
-		<div class="arrow" style= "padding-right: 320px"><br/> <h1>&#8592;</h1></div>
-		<div class="arrow" style= "padding-left: 320px"><br/> <h1>&#8594;</h1></div>
-		<p class = "speech" id = "bubble">Drag me</p>	
-		<br>
-		<br>
-		<br/>
+	<div class="col-md-1 col-sm-1 col-xs-1">
+		<br><br>
+		<h1 class="arrow">&#8592;</h1>
 	</div>
-	<div class="col-md-2 col-sm-3 col-xs-4">
-		<p>Dump<p/>
+	<div class="col-md-2 col-sm-2 col-xs-2">
+		<br><br>
+		<div class="btn btn-primary drag" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="listTweet" jqyoui-draggable="{animate:true}" ng-hide="!listTweet.title" style="align:centre"><i id="drag1" class="fa fa-twitter fa-4x w3-hover-opacity"></i></div>
+		<p class = "speech" id = "bubble">Drag me</p>	
+	</div>
+	<div class="col-md-1 col-sm-1 col-xs-1">
+		<br><br>
+		<h1 class="arrow">&#8594;</h1>
+	</div>
+	<div class="col-md-2 col-sm-2 col-xs-2">
+		<p>Dump <i class="fa fa-trash"></i><p/>
 		<div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="listDump" jqyoui-droppable>
-  				<div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="listDump" jqyoui-draggable ng-hide="!listDump.title"><i id="drag3" class="fa fa-twitter fa-4x w3-hover-opacity"></i></div>
+  			<div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="listDump" jqyoui-draggable ng-hide="!listDump.title"><i id="drag3" class="fa fa-twitter fa-4x w3-hover-opacity"></i></div>
   		</div>
 	</div>
-	<div class = "col-md-3 col-sm-2">
-	</div>
+	<div class="col-md-2 col-sm-2 col-xs-2"></div>
+
 </div>
 
 <!-- OLD DRAG CODE
