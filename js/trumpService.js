@@ -61,7 +61,6 @@ trumpOrDumpApp.factory('Trump',function ($resource,$cookieStore) {
 	
 	this.getHighScore = function(){
 		
-		
 	};
 	
 	this.updateHighScore = function(data){

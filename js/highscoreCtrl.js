@@ -11,7 +11,6 @@ trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase, Trump){
       //console.log("UserScore: ",UserScore);
       //console.log(snapshot);
 
-    // FINDING USER
     for (var thing in data) {
       highScoreList.push(data[thing].highScore);
       if(thing == firebase.me()) {UserScore = data[thing].highScore;}
