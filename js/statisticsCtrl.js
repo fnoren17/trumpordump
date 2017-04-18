@@ -4,10 +4,9 @@ trumpOrDumpApp.controller('StatisticsCtrl',function($scope, firebase){
 
     firebase.getDatabase('statistics',function(snapshot){
       var stat_data = JSON.parse(JSON.stringify(snapshot));
-      $scope.$apply(function () {
-        $scope.right = stat_data[0];
-        $scope.wrong = stat_data[1];
-      });
+      $scope.right = stat_data[0];
+      $scope.wrong = stat_data[1];
+      $scope.$apply();
       
         // SIMPE CODE FOR MAKING A PIE CHART USING D3 VERY BASIC.
         // SOURCE: http://bl.ocks.org/enjalot/1203641
@@ -21,7 +20,6 @@ trumpOrDumpApp.controller('StatisticsCtrl',function($scope, firebase){
     data = [{"label":"Right", "value":$scope.right}, 
             {"label":"Wrong", "value":$scope.wrong}];
 
-    //d3.select("stat")[0][0].innerHTML = "";
     var vis = d3.select("stat")
         .append("svg:svg")              //create the SVG element inside the <body>
         .data([data])                   //associate our data with the document
