@@ -106,8 +106,18 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
         else if (rightwrong == "wrong") {
           data[1] +=1;
         }
-        //console.log(data);
         firebase.database().ref("/statistics/").update(data);
+      });
+      userId = firebase.auth().currentUser.uid;
+      firebase.database().ref("/users/" + userId).once("value",function(data) {
+        data = JSON.parse(JSON.stringify(data));
+        if (rightwrong == "right") {
+          data.right += 1;
+        }
+        else if (rightwrong == "wrong") {
+          data.wrong += 1;
+        }
+        firebase.database().ref("/users/" + userId).update(data);
       });
     }
 
@@ -171,7 +181,7 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
 
     setTimeout(function() {
         var userId = user.na.uid;
-        var JSONDATA = '{"highScore" : 0,"tweetsSeen" : [ true ]}';
+        var JSONDATA = '{"highScore":0,"right":0,"wrong":0}';
         firebase.database().ref('users/' + userId).set(JSON.parse(JSONDATA));
       }, 1000);
     }
