@@ -30,7 +30,7 @@ body,h1,h2,h3,h4,h5,h6 {
 }
 
 #loginDiv {
-      background-color: #f94a2f;
+      background-color: #FF4136;
 }
 
 #prelogin {
@@ -46,7 +46,7 @@ body,h1,h2,h3,h4,h5,h6 {
 }
 
 #nextTweet {
-    background-color: #f94a2f;/*#cc2c00;*/
+    background-color: #FF4136;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -55,6 +55,27 @@ body,h1,h2,h3,h4,h5,h6 {
     display: inline-block;
     font-size: 24px;
     border-radius: 10px
+}
+
+#nextTweet:hover {
+     box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 10px 25px 0 rgba(0,0,0,0.19);
+
+}
+
+#signOut {
+  background-color: #0074D9; 
+    color: black; 
+    border: 2px solid #0074D9;
+    font-size: 16px;
+
+}
+
+#signOut:hover {
+    background-color: #FF4136;
+    border: 2px solid #FF4136;
+    color: white;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 10px 25px 0 rgba(0,0,0,0.19);
+
 }
 
 /*Divider*/
