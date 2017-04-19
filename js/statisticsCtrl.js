@@ -16,7 +16,7 @@ trumpOrDumpApp.controller('StatisticsCtrl',function($scope, firebase){
         r = 100,//radius
 
     // Colors
-    color = d3.scale.ordinal().range(['#b4aeff','#ff8c8c']);
+    color = d3.scale.ordinal().range(['#deddd9','#c48580']);
     data = [{"label":"Right", "value":$scope.right}, 
             {"label":"Wrong", "value":$scope.wrong}];
 

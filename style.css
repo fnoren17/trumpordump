@@ -15,6 +15,15 @@ body,h1,h2,h3,h4,h5,h6 {
   border: 1px solid #aaaaaa;
 }
 
+header {
+  background-color: #15133a;
+  color: white;
+}
+footer {
+  background-color: #090e24;
+  color: white;
+}
+
 /*BUTTONS*/
 
 #startButton {
@@ -25,12 +34,31 @@ body,h1,h2,h3,h4,h5,h6 {
    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 10px 25px 0 rgba(0,0,0,0.19);
 }
 
+.btn-primary {
+  background-color: #bb010e;
+  border: 0px;
+}
+.btn-primary:hover {
+  background-color: #c48580;
+  border: 0px;
+}
+.btn-primary:active:hover{
+  background-color: #960709;
+}
+
 .btn btn-primary:hover {
   box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 10px 25px 0 rgba(0,0,0,0.19);
 }
 
 #loginDiv {
-      background-color: #f94a2f;
+      background-color: #161630;
+}
+#loginDiv p {
+  color: white;
+}
+#loginDiv button {
+  background-color: #c0090e;
+  color: white;
 }
 
 #prelogin {
@@ -46,7 +74,7 @@ body,h1,h2,h3,h4,h5,h6 {
 }
 
 #nextTweet {
-    background-color: #f94a2f;/*#cc2c00;*/
+    background-color: #c0090e;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -146,4 +174,12 @@ p.speech:after {
   text-align: center;
   height: 80px;
   width: 80px;
+}
+
+p i{
+  color: #bb010e;
+}
+
+.row {
+  padding-top: 20px;
 }
