@@ -48,10 +48,12 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
 
     // FUNCTIONS IN firebaseService
 
-    //Redirect to question if you already are logged in   
+    //Redirect to question if you already are logged in and to start if you're not  
     firebase.auth().onAuthStateChanged(function(user){
       if(user) {
         window.location = "#/question";
+      } else if(!user){
+        window.location = "#/start";
       }
       });    
     // Getting own user-id.
