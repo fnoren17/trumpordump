@@ -34,12 +34,12 @@
   </div>
 </div>
 <!--Login options-->
-<div id = "loginDiv" class="col-xl-12" style= "padding-top:10px; padding-bottom: 10px; align-content: center">
+<div id="loginDiv" class="col-xl-12" style= "padding-top:10px; padding-bottom: 10px; align-content: center">
   <div class="col-md-offset-5 vcenter">
-    <div id = "login" style= "display:none;" class="answer_list" >
+    <div id="login" ng-hide="loginHider" class="answer_list" >
       <ng-include src="'partials/login.html'" ng-controller="LoginCtrl"></ng-include>
     </div>
-    <button class = "loginButtons" id = "prelogin" ng-click="login(); showDiv(); hideDiv()">Login</button> 
+    <button class = "loginButtons" id = "prelogin" ng-hide="!loginHider" ng-click="showDiv()">Login</button> 
   </div>
 </div>
 

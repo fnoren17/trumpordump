@@ -172,21 +172,19 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       }
       console.log(error);
     });
-      
+
+    // ADDING NEW USER DATA
     firebase.auth().onAuthStateChanged(function(user){
       if(user) {
-        window.location = "#/question";
-      }
-      });
-    // ADDING NEW USER DATA
-    // SERVER TAKES SOME TIME TO STORE NEW USER AND ASSIGNING ID
-
-    setTimeout(function() {
-        var userId = user.na.uid;
+        var userId = user.uid;
         var JSONDATA = '{"highScore":0,"right":0,"wrong":0}';
         firebase.database().ref('users/' + userId).set(JSON.parse(JSONDATA));
-      }, 1000);
-    }
+        window.location = "#/question";
+      }
+    });
+  }
+   
+
     // RETURNING THIS
     return this;
 

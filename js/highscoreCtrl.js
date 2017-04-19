@@ -1,10 +1,13 @@
 
-trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase, Trump){
+trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase, Trump,$timeout){
 
    	var highScoreList = [];
 
     // GETTING HIGHSCORE
 	  firebase.getLiveHighScore(function(snapshot) {
+      //console.log("YAS QUEEN");
+      //console.log(snapshot);
+      //console.log(highScoreList);
       var data = JSON.parse(JSON.stringify(snapshot));
       var counter = 0;
       var UserScore = Trump.getScore();
@@ -44,6 +47,9 @@ trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase, Trump){
     $scope.firstPoints = highScoreList[0];
     $scope.secondPoints = highScoreList[1];
     $scope.thirdPoints = highScoreList[2];
-        
+
+    $timeout(function() {
+      $scope.objects = [{points:$scope.firstPoints, animal:$scope.firstAnimal, number:"1"},{points:$scope.secondPoints, animal:$scope.secondAnimal, number:"2"},{points:$scope.thirdPoints, animal:$scope.thirdAnimal, number:"3"}];
+    },100);
     });
 });
