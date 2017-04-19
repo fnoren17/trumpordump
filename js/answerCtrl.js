@@ -3,9 +3,9 @@ trumpOrDumpApp.controller('AnswerCtrl',function($scope, $routeParams, Trump, fir
 	
 	$scope.showAnswer = "";
 	
-	if($routeParams.ans == "trump"){
+	if($routeParams.ans == "trump"){ //if the user answered Trump...
 			
-		if(Trump.getAnswer() == true){
+		if(Trump.getAnswer() == true){ //...and it's right
 
 			firebase.setStatistics("right");
 			Trump.updateScore(Trump.getScore() + 1);
@@ -17,7 +17,7 @@ trumpOrDumpApp.controller('AnswerCtrl',function($scope, $routeParams, Trump, fir
 			audio.play();
 		}
 
-		else{
+		else{ //and if it's wrong
 
 			firebase.setStatistics("wrong");
 			Trump.updateScore(Trump.getScore() - 5);
@@ -37,9 +37,9 @@ trumpOrDumpApp.controller('AnswerCtrl',function($scope, $routeParams, Trump, fir
 			
 	}
 
-	else {
+	else { //if the user answered dump...
 			
-		if(Trump.getAnswer() == false){
+		if(Trump.getAnswer() == false){ //...and dump is the correct answer
 
 			firebase.setStatistics("right");
 			Trump.updateScore(Trump.getScore() + 1);
@@ -51,7 +51,7 @@ trumpOrDumpApp.controller('AnswerCtrl',function($scope, $routeParams, Trump, fir
 			audio.play();
 		}
 
-		else{
+		else{ //and if dump is the wrong answer
 			firebase.setStatistics("wrong");
 			Trump.updateScore(Trump.getScore() - 5);
 

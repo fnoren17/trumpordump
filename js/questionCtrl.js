@@ -19,6 +19,7 @@ trumpOrDumpApp.controller('QuestionCtrl',function($scope, Trump){
 	});
 
 	$scope.changeicon = function(id, flag) {
+		console.log("test");
 		if (id == "trump") {
 			if(flag == 1){
 				document.getElementById("trump").className = "fa fa-thumbs-up fa-4x div1";
