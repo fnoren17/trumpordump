@@ -71,6 +71,16 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
 
     // Getting the database, whole or a part of it based on input.
     this.getDatabase = function(input,cb) {
+      firebase.database().ref(String(input)).on("value",function(snapshot){
+        cb(JSON.parse(JSON.stringify(snapshot)));
+      },
+      function(error){
+        console.log(error);
+        console.log(firebase.auth().currentUser);
+      });
+    }
+    // Same but just getting it once.
+    this.getDatabaseOnce = function(input,cb) {
       firebase.database().ref(String(input)).once("value",function(snapshot){
         cb(JSON.parse(JSON.stringify(snapshot)));
       },
@@ -183,7 +193,6 @@ trumpOrDumpApp.factory('firebase',function ($resource) {
       }
     });
   }
-   
 
     // RETURNING THIS
     return this;

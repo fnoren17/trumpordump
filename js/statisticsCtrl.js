@@ -1,8 +1,7 @@
-
 trumpOrDumpApp.controller('StatisticsCtrl',function($scope, firebase){
     var stat_data = "";
 
-    firebase.getDatabase('statistics',function(snapshot){
+    firebase.getDatabaseOnce('statistics',function(snapshot){
       var stat_data = JSON.parse(JSON.stringify(snapshot));
       $scope.right = stat_data[0];
       $scope.wrong = stat_data[1];

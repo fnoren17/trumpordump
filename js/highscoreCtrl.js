@@ -1,10 +1,13 @@
 
 trumpOrDumpApp.controller('HighscoreCtrl',function($scope, firebase, Trump,$timeout){
 
-   	var highScoreList = [];
+   	
 
     // GETTING HIGHSCORE
 	  firebase.getLiveHighScore(function(snapshot) {
+
+      var highScoreList = [];
+
       //console.log("YAS QUEEN");
       //console.log(snapshot);
       //console.log(highScoreList);
