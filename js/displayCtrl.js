@@ -9,3 +9,5 @@ trumpOrDumpApp.controller('DisplayCtrl',function($scope, firebase, Trump){
 
 	
 });
+
+//Test
